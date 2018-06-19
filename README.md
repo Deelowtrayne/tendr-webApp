@@ -1,2 +1,0 @@
-# tendr-webApp
-# tendr-webApp
