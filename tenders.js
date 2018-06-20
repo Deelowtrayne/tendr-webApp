@@ -1,21 +1,5 @@
 const fs = require('fs-extra')
 
-/*
-
-ID
-Gender
-Age
-Race
-What is the person doing
-Group	Number of people in the group	Where was the person sleeping/ observed?
-Street Name
-Area
-X               GPS Co ordinate
-Y                  GPS Co ordinate
-
-
-*/
-
 
 function createTenderList(rows, num) {
   var tenders = [];
@@ -59,7 +43,6 @@ function createTenderList(rows, num) {
 }
 
 async function readFile() {
-
 
   let file = await fs.readFile("./February2017-2.txt", "utf-8");
   let rows = file.split("\n");
