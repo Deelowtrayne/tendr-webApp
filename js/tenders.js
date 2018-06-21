@@ -12,7 +12,6 @@ module.exports = function (stored) {
     data.tenders = tenders;
   }
 
-<<<<<<< HEAD
   function getIndustryTotals() {
     let depMap = {};
 
@@ -49,8 +48,6 @@ module.exports = function (stored) {
       values: [],
       vendors: []
     };
-=======
->>>>>>> 837cec11386ac15b2542043516cecac0de5d39ab
 
     for (let i = 0; i < tenders.length; i++) {
       // get industries
@@ -73,7 +70,6 @@ module.exports = function (stored) {
     return context;
   }
 
-<<<<<<< HEAD
   function search(field, value){
     let query = `tenders[*${field}~/.*${value}.*/i]`;
     var result = jsonQuery(query, {
@@ -99,8 +95,6 @@ module.exports = function (stored) {
     return searchResults;
   }
 
-=======
->>>>>>> 837cec11386ac15b2542043516cecac0de5d39ab
   return {
     data,
     getIndustryTotals,
