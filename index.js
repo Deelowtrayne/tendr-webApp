@@ -24,13 +24,19 @@ app.use(bodyParser.json());
 
 // HOME PAGE
 app.get("/", function (req, res) {
-    console.log(tenderObj.data);
+    
     res.render('home');
 })
 
 // SEARCH RESULTS
 app.get("/search", function (req, res) {
     res.render('search', {allData: tenderObj.data});
+})
+app.get("/filter", function (req, res) {
+    res.render('filter', {allData: tenderObj.data});
+})
+app.get("/about", function (req, res) {
+    res.render('about', {allData: tenderObj.data});
 })
 
 app.post("/search", function (req, res) {
