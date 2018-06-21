@@ -25,7 +25,7 @@ function DataSetFilter(dataSet) {
       var tenderNo = map.no;
     console.log(company);
     for (var key in dataMap) {
-      if (dataMap[company] === undefined) {
+      if (dataMap[key] === undefined) {
         dataMap[company] = {industry, tenderValue, tenderDate, description, tenderNo};
       }
       if (dataMap[company] === company) {
