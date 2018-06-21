@@ -1,118 +1,24 @@
 
-{{!--
-    BROKEN RECORD....PLEASE PRESS CTRL + A. PRESS BACK-SPACE AND START TYPING.
-
-    { BANELE }
-    WE ARE STILL WORKING ON THE LOGIC TO MAKE THIS WORK BUT WHEN WE MEET IN THE MORNING
-=======
-{{!--
-    BROKEN RECORD....PLEASE PRESS CTRL + A. PRESS BACK-SPACE AND START TYPING.
-
-    { BANELE }
-    WE ARE STILL WORKING ON THE LOGIC TO MAKE THIS WORK BUT WHEN WE MEET IN THE MORNING
->>>>>>> 97e748c4c242888c5ae7c2ce238037af43e61338
-    WE WILL CREATE AN OBJECT WITH FAKE DATA SO THAT YOU HAVE CONTENT TO STYLE/WORK ON, ON THIS PAGE. (00,)
-
- --}}
-
 <style>
-
-    a {
-      text-decoration: none;
-      color: rgba(67, 86, 71, 1);
-    }
-    a:hover {
-      color: rgb(89, 205, 161);
-    }
     li {
         text-align: left;
-        list-style: none;
-        margin: 1rem;
-        padding: 1rem;
-        border: 1px solid rgb(67, 86, 71);
-        border-radius: 4px;
-    }
-    #dateAmount {
-      margin-left: 65%;
-    }
-    hr {
-      background-color: rgb(89, 205, 161);
+        padding: 0.6rem 2rem;
     }
 </style>
+
 <h2>Here Are The Results Of Your Search</h2>
 <h3></h3>
 <ul>
   {{!--<li></li> WILL THIS BE CREATED DYNAMICALLY OR DOES THE PAGE REQUIRE AN LI?--}}
+  {{#each allData}}
   <li>
-    <a href="/tender/345225">
-      <h3>ABC Dealers</h3>
+    <a href="/tender/{{id}}">
+      <h3>{{department}}</h3>
     </a>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-      <p>Date</p>
-      <p id="dateAmount">R1,000,000</p>
+      <p>{{description}}</p>
+      <p>{{awardedDate}}</p>
+      <p id="dateAmount">R {{value}}</p>
   </li>
   <hr>
-  <li>
-    <a href="/tender/345225">
-      <h3>ABC Dealers</h3>
-    </a>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-      <p>Date</p>
-      <p id="dateAmount">R1,000,000</p>
-  </li>
-  <hr>
-  <li>
-    <a href="/tender/345225">
-      <h3>ABC Dealers</h3>
-    </a>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-      <p>Date</p>
-      <p id="dateAmount">R1,000,000</p>
-  </li>
-  <hr>
-  <li>
-    <a href="/tender/345225">
-      <h3>ABC Dealers</h3>
-    </a>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-      <p>Date</p>
-      <p id="dateAmount">R1,000,000</p>
-  </li>
-  <hr>
-  <li>
-    <a href="/tender/345225">
-      <h3>ABC Dealers</h3>
-    </a>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-      <p>Date</p>
-      <p id="dateAmount">R1,000,000</p>
-  </li>
-  <hr>
-  <li>
-    <a href="/tender/345225">
-      <h3>ABC Dealers</h3>
-    </a>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-      <p>Date</p>
-      <p id="dateAmount">R1,000,000</p>
-  </li>
-  <hr>
-  <li>
-    <a href="/tender/345225">
-      <h3>ABC Dealers</h3>
-    </a>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-      <p>Date</p>
-      <p id="dateAmount">R1,000,000</p>
-  </li>
-  <hr>
-  <li>
-    <a href="/tender/345225">
-      <h3>ABC Dealers</h3>
-    </a>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-      <p>Date</p>
-      <p id="dateAmount">R1,000,000</p>
-  </li>
-  <hr>
+  {{/each}}
 </ul>
