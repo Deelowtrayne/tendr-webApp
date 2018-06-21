@@ -58,7 +58,7 @@ app.get('/tender/:tenderNumber', function(req, res){
     var tenderNum = req.params.tenderNumber;
     res.send(`
         <h2>Viewing tender number: ${tenderNum}</h2>
-        <p>Nothing here yet</p>
+        
     `)
     //res.render('tender');
 })
