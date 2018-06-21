@@ -7,7 +7,30 @@ module.exports = function(stored) {
       }
     }
 
+
+
     return {
       data
     }
+}
+function DataSetFilter(dataSet) {
+  var dataMap = {};
+  for (var i = 0; i < dataSet.length; i++) {
+    var map = dataSet[i];
+      var company = map.vendor;
+      var industry = map.department;
+      var tenderValue = map.value;
+      var tenderDate = map.awardedDate;
+      var description = map.description;
+      var tenderNo = map.no;
+    console.log(company);
+    for (var key in dataMap) {
+      if (dataMap[company] === undefined) {
+        dataMap[company] = {industry, tenderValue, tenderDate, description, tenderNo};
+      }
+      if (dataMap[company] === company) {
+        dataMap[company].push({industry, tenderValue, tenderDate, description, tenderNo});
+      }
+    }
+  }
 }
