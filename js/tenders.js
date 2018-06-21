@@ -7,6 +7,8 @@ module.exports = function(stored) {
     }
   }
 
+  
+
   function filterByIndustry(industry) {
     var depList = [];
     for (var i = 0; i < data.length; i++) {
