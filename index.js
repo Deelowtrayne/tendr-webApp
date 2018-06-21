@@ -2,14 +2,13 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 var exphbs = require('express-handlebars');
+const fs = require('fs-extra');
 const Tenders = require('./js/tenders');
-const fs = require('fs');
-
-var jsonData = fs.readFile('tenders.json');
-var data = JSON.parse(jsonData);
+var jsonData = require('./tenders.json');
 
 const app = express();
-const tenderObj = Tenders(data);
+
+const tenderObj = Tenders(jsonData);
 
 // handlebars
 app.engine('handlebars', exphbs({
@@ -25,7 +24,7 @@ app.use(bodyParser.json());
 
 // HOME PAGE
 app.get("/", function (req, res) {
-    
+    console.log(tenderObj.data);
     res.render('home');
 })
 
