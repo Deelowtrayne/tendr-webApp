@@ -1,4 +1,5 @@
 <style>
+<<<<<<< HEAD
   li {
     text-align: left;
     padding: 0.6rem 2rem;
@@ -37,6 +38,31 @@
     <p>{{description}}</p>
     <p>{{awardedDate}}</p>
     <p class="value-block">R {{value}}</p>
+=======
+    .list li {
+        text-align: left;
+        padding: 0.6rem 2rem;
+        width: 90%;
+    }
+    .value-block {
+      text-indent: 7%;
+    }
+    .date-block {
+      text-indent: 3%;
+    }
+</style>
+
+<h2>Here Are The Results Of Your Search</h2>
+<ul class="list">
+  {{#each allData}}
+  <li>
+    <a href="/tender/{{id}}">
+      <h3>{{department}}</h3>
+    </a>
+      <p>{{description}}</p>
+      <p class="date-block">{{awardedDate}}</p>
+      <p class="value-block">R {{value}}</p>
+>>>>>>> 837cec11386ac15b2542043516cecac0de5d39ab
   </li>
   <hr> {{/each}}
 </ul>
