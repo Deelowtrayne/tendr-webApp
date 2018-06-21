@@ -27,31 +27,27 @@ app.use(bodyParser.json());
 
 // HOME PAGE
 app.get("/", function (req, res) {
-    res.render('home');
+    res.render('home', tenderObj.getIndustryNames());
 })
 
 // SEARCH RESULTS
-app.get("/search", function (req, res) {
-    res.render('search', {allData: tenderObj.data});
-})
-app.get("/filter", function (req, res) {
-    console.log(tenderObj.getIndustryNames());
-
-    res.render('filter', {
-        industries: tenderObj.getIndustryNames(),
-        dates: tenderObj.getAwardDates(),
-        values: "",
-        vendors: ""
+app.get("/search/:search_string", function (req, res) {
+    let qs = decodeURI(req.params.search_string);
+    res.render('search', {
+        vendorMatches: tenderObj.filterBy(qs, 'vendor'),
+        industryMatches: tenderObj.filterBy(qs, 'industry'),
+        dateMatches: tenderObj.filterBy(qs, 'awardedDate'),
     });
-})
-app.get("/about", function (req, res) {
-    res.render('about', {allData: tenderObj.data});
 })
 
 app.post("/search", function (req, res) {
-    var q = req.body.searchStr;
-    res.render('search');
-})
+    var q = req.body.searchInput;
+    res.render('search', {
+        vendorMatches: tenderObj.filterBy(q, 'vendor'),
+        industryMatches: tenderObj.filterBy(q, 'industry'),
+        dateMatches: tenderObj.filterBy(q, 'awardedDate'),
+    });
+});
 
 // TENDER VIEW
 app.get('/tender/:tenderNumber', function(req, res){
@@ -61,6 +57,11 @@ app.get('/tender/:tenderNumber', function(req, res){
         
     `)
     //res.render('tender');
+})
+
+// about page
+app.get("/about", function (req, res) {
+    res.render('about', {allData: tenderObj.data});
 })
 
 let PORT = process.env.PORT || 5000;

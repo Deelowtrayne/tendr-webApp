@@ -25,7 +25,7 @@ module.exports = function (stored) {
     }
     return depMap;
   }
-
+  
   function getDeptTotals() {
     let depMap = {};
 
@@ -41,68 +41,65 @@ module.exports = function (stored) {
   }
 
   function getIndustryNames(){
-    let industries = [];
     let tenders = stored.tenders;
-    
-    for (let i = 0; i < tenders.length; i++) {
-      if (!industries.includes(tenders[i].department)){
-        industries.push(tenders[i].department);
-      }
-    }
-    return industries;
-  }
+    let context = {
+      industries: [],
+      dates: [],
+      values: [],
+      vendors: []
+    };
 
-  function getAwardDates(){
-    let dates = [];
-    let tenders = stored.tenders;
-    
     for (let i = 0; i < tenders.length; i++) {
-      if (!dates.includes(tenders[i].awardedDate)){
-        dates.push(tenders[i].awardedDate);
+      // get industries
+      if (!context['industries'].includes(tenders[i].department)){
+        context['industries'].push(tenders[i].department);
+      }
+      // get dates
+      if (!context['dates'].includes(tenders[i].awardedDate)){
+        context['dates'].push(tenders[i].awardedDate);
+      }
+      // get values
+      if (!context['values'].includes(tenders[i].value)){
+        context['values'].push(tenders[i].value);
+      }
+      // get vendors
+      if (!context['vendors'].includes(tenders[i].vendor)){
+        context['vendors'].push(tenders[i].vendor);
       }
     }
-    return dates;
+    return context;
   }
 
   function search(field, value){
-    
     let query = `tenders[*${field}~/.*${value}.*/i]`;
-    console.log(query);
-    
     var result = jsonQuery(query, {
-      data:data,
+      data:stored,
       allowRegexp: true
     });
-    console.log(result)
     return result.value;
   }
 
   function filterBy(searchStr, field) {
+    let fullWordResult = search(field, searchStr);
+
+    if (fullWordResult.length > 0) {
+      return fullWordResult;
+    }
+
     let qs = searchStr.split(" ");
     let searchResults = [];
     qs.forEach(word => {
       let result = search(field, word);
       searchResults = searchResults.concat(result);
     });
-    return venderResults;
-  }
-
-  function searchAllFields(industry) {
-    var depList = [];
-    for (var i = 0; i < data.length; i++) {
-      if (data[i].department.includes(department))
-        depList.push(data[i]);
-    }
-    return depList;
+    return searchResults;
   }
 
   return {
     data,
-    searchAllFields,
     getIndustryTotals,
     getDeptTotals,
     filterBy,
     getIndustryNames,
-    getAwardDates,
   }
 }
