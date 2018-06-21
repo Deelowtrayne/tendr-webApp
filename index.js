@@ -63,6 +63,8 @@ app.get('/tender/:tenderNumber', function(req, res){
     //res.render('tender');
 })
 
-app.listen(5000, function () {
+let PORT = process.env.PORT || 5000;
+
+app.listen(PORT, function () {
     console.log("listening on port 5000...");
 })
