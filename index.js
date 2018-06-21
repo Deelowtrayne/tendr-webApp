@@ -4,17 +4,9 @@ const bodyParser = require('body-parser');
 var exphbs = require('express-handlebars');
 const fs = require('fs-extra');
 const Tenders = require('./js/tenders');
-<<<<<<< HEAD
-
 var jsonData = require('./tenders.json');
 
 const app = express();
-=======
-var jsonData = require('./tenders.json');
-
-const app = express();
-
->>>>>>> 6524edb204ccb8b9054c762cf64c9fcd8ad56825
 const tenderObj = Tenders(jsonData);
 
 // handlebars
@@ -31,16 +23,21 @@ app.use(bodyParser.json());
 
 // HOME PAGE
 app.get("/", function (req, res) {
-<<<<<<< HEAD
-=======
-    console.log(tenderObj.data);
->>>>>>> 6524edb204ccb8b9054c762cf64c9fcd8ad56825
     res.render('home');
 })
 
 // SEARCH RESULTS
 app.get("/search", function (req, res) {
     res.render('search', {allData: tenderObj.data});
+})
+app.get("/filter", function (req, res) {
+    res.render('filter', {allData: tenderObj.data});
+})
+app.get("/tender", function (req, res) {
+    res.render('tender', {allData: tenderObj.data});
+})
+app.get("/about", function (req, res) {
+    res.render('about');
 })
 
 app.post("/search", function (req, res) {
