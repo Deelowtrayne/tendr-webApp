@@ -13,6 +13,10 @@ module.exports = function(stored) {
       if (data[i].department.includes(department))
         depList.push(data[i]);
     }
+    return depList;
   }
-  return depList;
+  return {
+    data,
+    filterByIndustry
+  }
 }
