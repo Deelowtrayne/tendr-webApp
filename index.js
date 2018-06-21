@@ -37,6 +37,12 @@ app.get("/", function (req, res) {
 app.get("/search", function (req, res) {
     res.render('search', {allData: tenderObj.data});
 })
+app.get("/filter", function (req, res) {
+    res.render('filter', {allData: tenderObj.data});
+})
+app.get("/about", function (req, res) {
+    res.render('about', {allData: tenderObj.data});
+})
 
 app.post("/search", function (req, res) {
     var q = req.body.searchStr;
