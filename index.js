@@ -25,7 +25,7 @@ app.use(bodyParser.json());
 
 // HOME PAGE
 app.get("/", function (req, res) {
-    
+    console.log(tenderObj.filterBy());
     res.render('home');
 })
 
