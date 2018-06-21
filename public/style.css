@@ -19,6 +19,10 @@ h1 small{
   display: inline;
 }
 
+option {
+  background: blue;
+}
+
 hr {
     border: none;
     height: 20px;

@@ -1,14 +1,15 @@
-"use strict";
+
 module.exports = function (stored) {
   const jsonQuery = require('json-query');
-  var data = [];
+  var data = {};
 
   if (stored) {
-    for (let i = 0; i < stored.length; i++) {
-      stored[i].industry = stored[i].department.split(' - ')[0];
-      stored[i].department = stored[i].department.split(' - ')[1];
-      data.push(stored[i]);
-    }
+    let tenders = stored.tenders.map(current => {
+      let temp = current.department.split(' - ')
+      current.industry = temp[0];
+      current.department = temp[1];
+    });
+    data.tenders = tenders;
   }
 
   function getIndustryTotals() {
@@ -39,13 +40,38 @@ module.exports = function (stored) {
     return depMap;
   }
 
+  function getIndustryNames(){
+    let industries = [];
+    let tenders = stored.tenders;
+    
+    for (let i = 0; i < tenders.length; i++) {
+      if (!industries.includes(tenders[i].department)){
+        industries.push(tenders[i].department);
+      }
+    }
+    return industries;
+  }
+
+  function getAwardDates(){
+    let dates = [];
+    let tenders = stored.tenders;
+    
+    for (let i = 0; i < tenders.length; i++) {
+      if (!dates.includes(tenders[i].awardedDate)){
+        dates.push(tenders[i].awardedDate);
+      }
+    }
+    return dates;
+  }
+
   function search(field, value){
+    
     let query = `tenders[*${field}~/.*${value}.*/i]`;
     console.log(query);
     
     var result = jsonQuery(query, {
-        data:stored,
-        allowRegexp: true
+      data:data,
+      allowRegexp: true
     });
     console.log(result)
     return result.value;
@@ -53,34 +79,15 @@ module.exports = function (stored) {
 
   function filterBy(searchStr, field) {
     let qs = searchStr.split(" ");
-    //let descResults = {},
-    //  tenderNumResults = {},
     let searchResults = [];
-    //  industryResults = {},
-    //  deptResults = {};
-
- 
     qs.forEach(word => {
-      // let query = `tenders[*vendor~/.*${word}.*/i]`;
-      // console.log(query);
-      // var result = jsonQuery(query, {
-      //   data:stored,
-      //   allowRegexp: true
-      // });
-      
       let result = search(field, word);
-      
-      //if(result.value.length > 0){
-        searchResults = searchResults.concat(result);
-      //}
-
+      searchResults = searchResults.concat(result);
     });
-
-
     return venderResults;
   }
 
-  function filterByIndustry(industry) {
+  function searchAllFields(industry) {
     var depList = [];
     for (var i = 0; i < data.length; i++) {
       if (data[i].department.includes(department))
@@ -91,9 +98,11 @@ module.exports = function (stored) {
 
   return {
     data,
-    filterByIndustry,
+    searchAllFields,
     getIndustryTotals,
     getDeptTotals,
-    filterBy
+    filterBy,
+    getIndustryNames,
+    getAwardDates,
   }
 }

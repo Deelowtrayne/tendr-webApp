@@ -7,7 +7,6 @@ const Tenders = require('./js/tenders');
 var jsonData = require('./tenders.json');
 
 const app = express();
-
 const tenderObj = Tenders(jsonData);
 
 // handlebars
@@ -28,8 +27,6 @@ app.use(bodyParser.json());
 
 // HOME PAGE
 app.get("/", function (req, res) {
-   // console.log(tenderObj.filterBy());
-    
     res.render('home');
 })
 
@@ -38,7 +35,14 @@ app.get("/search", function (req, res) {
     res.render('search', {allData: tenderObj.data});
 })
 app.get("/filter", function (req, res) {
-    res.render('filter', {allData: tenderObj.data});
+    console.log(tenderObj.getIndustryNames());
+
+    res.render('filter', {
+        industries: tenderObj.getIndustryNames(),
+        dates: tenderObj.getAwardDates(),
+        values: "",
+        vendors: ""
+    });
 })
 app.get("/about", function (req, res) {
     res.render('about', {allData: tenderObj.data});
