@@ -5,19 +5,16 @@
       OPEN AND SEE WHAT IS ON THERE.
     * HOPE THIS ISN'T CONFUSING YOU TOO MUCH.
  --}}
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
+
     <link rel="stylesheet" href="/home.css">
-    <title></title>
-  </head>
-  <body>
+    <title>Home</title>
+ 
     <h1>About our App</h1>
 
     <p>This is our application to give small to medium business owners upto date tender summary informtation of open and recently closed tenders which the city of capetown publishes on their opendata website.</p>
 
     <p> Please select wether you are looking for current open tenders or recently closed tenders which your company might be able to support:</p>
-
-  </body>
-</html>
+    {{#each deptTotal}}
+    <h2>{{@key}}</h2>
+    <p>{{roundedValue}}</p>
+    {{/each}}

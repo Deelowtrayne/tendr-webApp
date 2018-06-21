@@ -13,7 +13,11 @@ const tenderObj = Tenders(jsonData);
 // handlebars
 app.engine('handlebars', exphbs({
     defaultLayout: 'main',
-    helpers: {}
+    helpers: {
+        "roundedValue": function(){
+            return this.toFixed(2);
+        }
+    }
 }));
 app.set('view engine', 'handlebars');
 
@@ -24,7 +28,8 @@ app.use(bodyParser.json());
 
 // HOME PAGE
 app.get("/", function (req, res) {
-    console.log(tenderObj.data);
+   // console.log(tenderObj.filterBy());
+    
     res.render('home');
 })
 
