@@ -1,24 +1,18 @@
 module.exports = function(stored) {
-    var data = [];
+  var data = [];
 
-    if (stored) {
-      for (let i = 0; i < stored.length; i++){
-        data.push(stored[i]);
-      }
+  if (stored) {
+    for (let i = 0; i < stored.length; i++) {
+      data.push(stored[i]);
     }
+  }
 
-    function filterByValue(minValue, maxValue){
-      var list = [];
-      for(var i = 0; i < data.length; i++){
-        if(data[i].value > minValue && data[i].value < maxValue ){
-          list.push(data[i]);
-        }
-      }
-
-      return list;
+  function filterByIndustry(industry) {
+    var depList = [];
+    for (var i = 0; i < data.length; i++) {
+      if (data[i].department.includes(department))
+        depList.push(data[i]);
     }
-    return {
-      data,
-      filterByValue
-    }
+  }
+  return depList;
 }

@@ -10,11 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.3",
-<<<<<<< HEAD
     "express-handlebars": "^3.0.0",
     "fs-extra": "^6.0.1"
-=======
-    "express-handlebars": "^3.0.0"
->>>>>>> e9350fbca2f1d8cff4f645dd6b7db87315de55b8
   }
 }
