@@ -1,18 +1,3 @@
-{{!--
-    BROKEN RECORD....PLEASE PRESS CTRL + A. PRESS BACK-SPACE AND START TYPING.
-
-    { BANELE }
-    WE ARE STILL WORKING ON THE LOGIC TO MAKE THIS WORK BUT WHEN WE MEET IN THE MORNING
-=======
-{{!-- 
-    BROKEN RECORD....PLEASE PRESS CTRL + A. PRESS BACK-SPACE AND START TYPING.
-
-    { BANELE }
-    WE ARE STILL WORKING ON THE LOGIC TO MAKE THIS WORK BUT WHEN WE MEET IN THE MORNING 
->>>>>>> e9350fbca2f1d8cff4f645dd6b7db87315de55b8
-    WE WILL CREATE AN OBJECT WITH FAKE DATA SO THAT YOU HAVE CONTENT TO STYLE/WORK ON, ON THIS PAGE. (00,)
-
- --}}
 
 <style>
     li {
@@ -21,10 +6,19 @@
     }
 </style>
 
-<h2>Search Page</h2>
-
-<ol>
-    <li>Please delete all this and put the proper HTML code to make this page work as expected</li>
-    <li>The CSS files can be found on the <em>public/</em> folder in the project directory.</li>
-    <li>We are workin on the other routes.</li>
-</ol>
+<h2>Here Are The Results Of Your Search</h2>
+<h3></h3>
+<ul>
+  {{!--<li></li> WILL THIS BE CREATED DYNAMICALLY OR DOES THE PAGE REQUIRE AN LI?--}}
+  {{#each allData}}
+  <li>
+    <a href="/tender/{{id}}">
+      <h3>{{department}}</h3>
+    </a>
+      <p>{{description}}</p>
+      <p>{{awardedDate}}</p>
+      <p id="dateAmount">R {{value}}</p>
+  </li>
+  <hr>
+  {{/each}}
+</ul>

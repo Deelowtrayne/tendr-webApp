@@ -7,7 +7,18 @@ module.exports = function(stored) {
       }
     }
 
+    function filterByValue(minValue, maxValue){
+      var list = [];
+      for(var i = 0; i < data.length; i++){
+        if(data[i].value > minValue && data[i].value < maxValue ){
+          list.push(data[i]);
+        }
+      }
+
+      return list;
+    }
     return {
-      data
+      data,
+      filterByValue
     }
 }
