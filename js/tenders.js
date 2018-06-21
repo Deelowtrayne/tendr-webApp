@@ -31,6 +31,9 @@ function DataSetFilter(dataSet) {
       if (dataMap[company] === company) {
         dataMap[company].push({industry, tenderValue, tenderDate, description, tenderNo});
       }
+      if (dataMap[key] !== company) {
+        dataMap[company] = {industry, tenderValue, tenderDate, description, tenderNo};
+      }
     }
   }
 }
