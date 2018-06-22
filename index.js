@@ -66,7 +66,11 @@ app.get('/tender/:tenderNumber', function(req, res){
     var tenderNum = req.params.tenderNumber;
     res.send(`
         <h2>Viewing tender number: ${tenderNum}</h2>
+<<<<<<< HEAD
+        <p>Nothing here ye</p>
+=======
         
+>>>>>>> 8681c839f6194945e4a584b5234aa5d6ea2ef6e2
     `)
     //res.render('tender');
 })
