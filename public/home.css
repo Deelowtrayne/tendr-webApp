@@ -1,11 +1,60 @@
-p{
+/* p{
   font-size: 15px;
   border: none;
   padding: 0.5rem;
   letter-spacing: 3px;
 }
-h1{
+.about{
   border: none;
   color: #FFF;
   text-shadow: 1px 1px 2px black, 0 0 5px darkblue;
+  font-size: 15px;
+  text-decoration: underline;
+} */
+select{
+
+
+color: #fff;
+text-transform: capitalize;
+background: none;
+text-shadow: 1px 1px 2px black, 0 0 5px darkblue;
+font-size: 18px;
+padding: 0.5rem;
+letter-spacing: 3px;
+width:40%;
+margin-left: auto;
+margin-right: auto;
+display:block;
+}
+button{
+  background: rgb(67,86,71);
+  color:#fff;
+  text-shadow: 1px 1px 2px black, 0 0 5px darkblue;
+  font-size: 20px;
+  margin-left: 5px;
+  margin-right: auto;
+  margin-bottom: 5px;
+  border-radius: 25px;
+}
+#eReset{
+  background: rgb(67,86,71);
+  color:#fff;
+  text-shadow: 1px 1px 2px black, 0 0 5px darkblue;
+  font-size: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  display:block;
+margin-bottom: 25px;
+}
+h3{
+  color: #fff;
+  text-shadow: 1px 1px 2px black, 0 0 5px darkblue;
+}
+input{
+  margin-bottom: 5%;
+}
+select{
+margin-left: auto;
+margin-right: auto;
+display:block;
 }
