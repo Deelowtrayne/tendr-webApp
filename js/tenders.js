@@ -79,6 +79,12 @@ module.exports = function (stored) {
     return result.value;
   }
 
+  function findTenderByID(id) { 
+    return stored.tenders.find(function(tender){
+      return tender.id == id;
+    })
+  }
+
   function filterBy(searchStr, field) {
     let fullWordResult = search(field, searchStr);
 
@@ -101,5 +107,6 @@ module.exports = function (stored) {
     getDeptTotals,
     filterBy,
     getIndustryNames,
+    findTenderByID
   }
 }

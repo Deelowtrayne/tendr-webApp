@@ -63,10 +63,11 @@ app.post("/search", function (req, res) {
 
 // TENDER VIEW
 app.get('/tender/:id', function(req, res){
-    var tenderNum = req.params.id;
-
+    var id = req.params.id;
+    // console.log(tenderObj.findTenderByID(id));
+    
     res.render('tender', {
-      tender: tenderObj.filterBy(tenderNum, 'id')
+      tender: tenderObj.findTenderByID(id)
     });
 })
 
