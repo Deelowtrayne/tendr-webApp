@@ -4,10 +4,14 @@
 </head>
 <style>
   h2 {
+
     font-weight: bold;
     font-size: 46px;
-    text-align: left;
+    text-align: center;
     text-indent: 2rem;
+    color: #F0F0F1;
+    text-shadow: 1px 1px 2px black, 0 0 5px darkblue;
+
   }
   table td {
     text-align: center;
@@ -15,23 +19,49 @@
   p {
     text-align: center;
     font-size: 20px;
+    text-shadow: 1px 1px 2px black, 0 0 5px darkblue;
+
   }
+  .person {
+    display: inline-block;
+    width: 160px;
+    text-shadow: 1px 1px 2px black, 0 0 5px rgb(169, 169, 199);
+
+  }
+  .person img{
+    display: block;
+    width: inherit; 
+     }
 </style>
+
 <h2>Fox Force Five</h2>
-<table>
-  <tr class="animate zoomIn">
-    <td><img src="https://image.ibb.co/c93P4o/banele.png" alt="banele"></td>
-    <td><img src="https://image.ibb.co/n9kMjo/lihle.png" alt="lihle"></td>
+
+<div class="animated zoomIn">
+  <div class="person">
+    <img src="https://image.ibb.co/c93P4o/banele.png" alt="banele">
+    <h3>Banele</h3>
+  </div>
+
+  <div class="person">
+    <img src="https://image.ibb.co/n9kMjo/lihle.png" alt="lihle">
+    <h3>Lihle</h3>
+  </div>
+
+  <div class="person">
     <td><img src="https://image.ibb.co/c1Mu4o/cobus.png" alt="cobus"></td>
-    <td><img src="https://image.ibb.co/nMZsqT/candice.png" alt="candice"></td>
-    <td><img src="https://image.ibb.co/cyxCqT/luvuyo.png" alt="luvuyo"></td>
-  </tr>
-  <tr class="animate zoomIn">
-    <td>Banele</td>
-    <td>Lihle</td>
-    <td>Cobus</td>
-    <td>Candice</td>
-    <td>Luvuyo</td>
-  </tr>
-</table>
+    <h3>Cobus</h3>
+  </div>
+
+  <div class="person">
+    <img src="https://image.ibb.co/nMZsqT/candice.png" alt="candice">
+    <h3>Candice</h3>
+  </div>
+
+  <div class="person">
+    <img src="https://image.ibb.co/cyxCqT/luvuyo.png" alt="luvuyo">
+    <h3>Luvuyo</h3>
+  </div>
+
+</div>
+
 <p>As a team, we are incredibly proud of this project and immensely thankful to all who support us on our journey.</p>
