@@ -38,6 +38,9 @@ app.get("/filter", function (req, res) {
 app.get("/about", function (req, res) {
     res.render('about', {allData: tenderObj.data});
 })
+app.get("/tender", function (req, res) {
+    res.render('tender', {allData: tenderObj.data});
+})
 
 app.post("/search", function (req, res) {
     var q = req.body.searchStr;
