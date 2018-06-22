@@ -11,7 +11,8 @@ WHAT IS ON THERE. * HOPE THIS ISN'T CONFUSING YOU TOO MUCH. --}}
 
     <form action="search" method="post">
       <input placeholder="search" type="text" name="searchInput">
-      <button type="submit" >Find It</button><button type="reset">Reset</button>
+      <button type="submit">Find It</button>
+      <button type="reset">Clear</button>
     <select class="animated fadeInLeft" name="industryFilter" onchange="switchPage(this)" class="industryFilter" >
       <option value="">by industry</option>
       {{#each industries}}
