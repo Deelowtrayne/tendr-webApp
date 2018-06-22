@@ -1,23 +1,46 @@
-{{!--
-    * PLEASE FEEL FREE TO JUST DELETE EVERYTHING ON THIS FILE AND START AFRESH
-    * PLEASE DO NOT PUT A HEAD TAG AND TOP-BAR ON THIS PAGE
-    * ON YOUR LEFT IN THE DIRECTORY PANEL, THERE IS A LAYOUTS FOLDER AND INSIDE THERE IS A MAIN FILE.
-      OPEN AND SEE WHAT IS ON THERE.
-    * HOPE THIS ISN'T CONFUSING YOU TOO MUCH.
- --}}
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="/home.css">
-    <title></title>
-  </head>
-  <body>
-    <h1>About our App</h1>
+{{!-- * PLEASE FEEL FREE TO JUST DELETE EVERYTHING ON THIS FILE AND START AFRESH * PLEASE DO NOT PUT A HEAD TAG AND TOP-BAR
+ON THIS PAGE * ON YOUR LEFT IN THE DIRECTORY PANEL, THERE IS A LAYOUTS FOLDER AND INSIDE THERE IS A MAIN FILE. OPEN AND SEE
+WHAT IS ON THERE. * HOPE THIS ISN'T CONFUSING YOU TOO MUCH. --}}
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+<link rel="stylesheet" href="/filter.css">
+{{!-- <link rel="stylesheet" href="/home.css"> --}}
+<title>Home</title>
 
-    <p>This is our application to give small to medium business owners upto date tender summary informtation of open and recently closed tenders which the city of capetown publishes on their opendata website.</p>
+<div class="filter">
+    <h3>Find your TENDR mate!</h3>
+    <form action="search" method="post">
+      <input placeholder="search" type="text" name="searchInput">
+      <input type="submit">
+    <select class="animated fadeInLeft" name="industryFilter" onchange="switchPage(this)" class="industryFilter" >
+      <option value="">by industry</option>
+      {{#each industries}}
+      <option value="{{this}}">{{this}}</option>
+      {{/each}}
+    </select>
+    <select class="animated fadeInRight" name="dateFilter" onchange="switchPage(this)" class="dateFilter">
+      <option value="">by date</option>
+     {{#each dates}}
+      <option value="{{this}}">{{this}}</option>
+      {{/each}}
+    </select>
+    <select class="animated fadeInLeft" name="valueFilter" onchange="switchPage(this)" class="valueFilter">
+      <option>by value</option>
+      {{#each values}}
+      <option value="{{this}}">{{this}}</option>
+      {{/each}}
+    </select>
+    <select class="animated fadeInRight" name="vendorFilter" onchange="switchPage(this)" class="vendorFilter">
+      <option>by company</option>
+      {{#each vendors}}
+      <option value="{{this}}">{{this}}</option>
+      {{/each}}
+    </select>
+    </form>
+  </div>
 
-    <p> Please select wether you are looking for current open tenders or recently closed tenders which your company might be able to support:</p>
-
-  </body>
-</html>
+{{!-- javascript --}}
+<script>
+  function switchPage(elem) {
+      location.href = '/search/' + elem.value;
+  }
+</script>

@@ -19,6 +19,10 @@ h1 small{
   display: inline;
 }
 
+option {
+  background: blue;
+}
+
 hr {
     border: none;
     height: 20px;
@@ -60,10 +64,11 @@ a{
 li {
   border: 1px solid rgb(67,86,71);
   color: rgba(89,205,161,1);
-  margin: none;
+  margin: 12px;
   list-style-type: none;
   background: linear-gradient(to right, rgb(75, 77, 145), rgb(14, 204, 161));
   display: inline-block;
+  font-size: 22px;
 
 
 }

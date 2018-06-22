@@ -1,27 +1,61 @@
-
 <style>
-    li {
-        text-align: left;
-        padding: 0.6rem 2rem;
-    }
-    .value-block {
-        
-    }
+  li {
+    text-align: left;
+    padding: 0.6rem 2rem;
+  }
+  .value-block {text-align:right;}
 </style>
 
 <h2>Here Are The Results Of Your Search</h2>
-<h3></h3>
+
+<h3>Results: Companies</h3>
 <ul>
-  {{!--<li></li> WILL THIS BE CREATED DYNAMICALLY OR DOES THE PAGE REQUIRE AN LI?--}}
-  {{#each allData}}
+  {{#each vendorMatches}}
   <li>
-    <a href="/tender/{{id}}">
-      <h3>{{department}}</h3>
-    </a>
-      <p>{{description}}</p>
-      <p>{{awardedDate}}</p>
-      <p class="value-block">R {{value}}</p>
+    <h3>
+      <a href="/tender/{{id}}">{{vendor}}</a>
+    </h3>
+    <p>{{description}}</p>
+    <p>{{awardedDate}}</p>
+    <p class="value-block">R {{value}}</p>
   </li>
-  <hr>
-  {{/each}}
+  <hr> {{/each}}
 </ul>
+
+{{#if industryMatches}}
+<h3>Results: Departments</h3>
+{{/if}}
+<ul>
+  {{!--
+  <li></li> WILL THIS BE CREATED DYNAMICALLY OR DOES THE PAGE REQUIRE AN LI?--}} 
+  {{#each industryMatches}}
+  <li>
+
+    <h3>
+      <a href="/tender/{{id}}">{{industry}}</a>
+    </h3>
+    <p>{{description}}</p>
+    <p>{{awardedDate}}</p>
+    <p class="value-block">R {{value}}</p>
+  </li>
+  <hr> {{/each}}
+</ul>
+
+{{#if dateMatches}}
+<h3>Results: Departments</h3>
+{{/if}}
+<ul>
+  {{!--
+  <li></li> WILL THIS BE CREATED DYNAMICALLY OR DOES THE PAGE REQUIRE AN LI?--}} 
+  {{#each dateMatches}}
+  <li>
+    <h3>
+      <a href="/tender/{{no}}">{{department}}</a>
+    </h3>
+    <p>{{description}}</p>
+    <p>{{awardedDate}}</p>
+    <p class="value-block">R {{value}}</p>
+  </li>
+  <hr> {{/each}}
+</ul>
+

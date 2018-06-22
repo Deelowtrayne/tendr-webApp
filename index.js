@@ -7,13 +7,16 @@ const Tenders = require('./js/tenders');
 var jsonData = require('./tenders.json');
 
 const app = express();
-
 const tenderObj = Tenders(jsonData);
 
 // handlebars
 app.engine('handlebars', exphbs({
     defaultLayout: 'main',
-    helpers: {}
+    helpers: {
+        "roundedValue": function(){
+            return this.toFixed(2);
+        }
+    }
 }));
 app.set('view engine', 'handlebars');
 
@@ -24,30 +27,58 @@ app.use(bodyParser.json());
 
 // HOME PAGE
 app.get("/", function (req, res) {
-    console.log(tenderObj.data);
-    res.render('home');
+    res.render('home', tenderObj.getIndustryNames());
 })
 
 // SEARCH RESULTS
-app.get("/search", function (req, res) {
-    res.render('search', {allData: tenderObj.data});
+app.get("/search/:search_string", function (req, res) {
+    let qs = decodeURI(req.params.search_string);
+    res.render('search', {
+        vendorMatches: tenderObj.filterBy(qs, 'vendor'),
+        industryMatches: tenderObj.filterBy(qs, 'industry'),
+        dateMatches: tenderObj.filterBy(qs, 'awardedDate'),
+    });
+})
+app.get("/filter", function (req, res) {
+    res.render('filter', {allData: tenderObj.data});
+})
+app.get("/tender", function (req, res) {
+    res.render('tender', {allData: tenderObj.data});
+})
+app.get("/about", function (req, res) {
+    res.render('about');
 })
 
 app.post("/search", function (req, res) {
-    var q = req.body.searchStr;
-    res.render('search');
-})
+    var q = req.body.searchInput;
+    res.render('search', {
+        vendorMatches: tenderObj.filterBy(q, 'vendor'),
+        industryMatches: tenderObj.filterBy(q, 'industry'),
+        dateMatches: tenderObj.filterBy(q, 'awardedDate'),
+    });
+});
 
 // TENDER VIEW
 app.get('/tender/:tenderNumber', function(req, res){
     var tenderNum = req.params.tenderNumber;
     res.send(`
         <h2>Viewing tender number: ${tenderNum}</h2>
+<<<<<<< HEAD
         <p>Nothing here ye</p>
+=======
+        
+>>>>>>> 8681c839f6194945e4a584b5234aa5d6ea2ef6e2
     `)
     //res.render('tender');
 })
 
-app.listen(5000, function () {
+// about page
+app.get("/about", function (req, res) {
+    res.render('about', {allData: tenderObj.data});
+})
+
+let PORT = process.env.PORT || 5000;
+
+app.listen(PORT, function () {
     console.log("listening on port 5000...");
 })
