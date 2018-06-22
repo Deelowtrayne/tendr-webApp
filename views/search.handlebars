@@ -1,22 +1,23 @@
 <style>
-  li {
+  .list {padding: 0px;}
+  .list li{
     text-align: left;
     padding: 0.6rem 2rem;
   }
-  .value-block {text-align:right;}
+  .value-block {text-align: right;}
 </style>
 
 <h2>Here Are The Results Of Your Search</h2>
 
 <h3>Results: Companies</h3>
-<ul>
+<ul class="list">
   {{#each vendorMatches}}
   <li>
     <h3>
       <a href="/tender/{{id}}">{{vendor}}</a>
     </h3>
     <p>{{description}}</p>
-    <p>{{awardedDate}}</p>
+    <p class="date-block">{{awardedDate}}</p>
     <p class="value-block">R {{value}}</p>
   </li>
   <hr> {{/each}}
@@ -25,7 +26,7 @@
 {{#if industryMatches}}
 <h3>Results: Departments</h3>
 {{/if}}
-<ul>
+<ul class="list">
   {{!--
   <li></li> WILL THIS BE CREATED DYNAMICALLY OR DOES THE PAGE REQUIRE AN LI?--}} 
   {{#each industryMatches}}
@@ -35,7 +36,7 @@
       <a href="/tender/{{id}}">{{industry}}</a>
     </h3>
     <p>{{description}}</p>
-    <p>{{awardedDate}}</p>
+    <p class="date-block">{{awardedDate}}</p>
     <p class="value-block">R {{value}}</p>
   </li>
   <hr> {{/each}}
@@ -44,7 +45,7 @@
 {{#if dateMatches}}
 <h3>Results: Departments</h3>
 {{/if}}
-<ul>
+<ul class="list">
   {{!--
   <li></li> WILL THIS BE CREATED DYNAMICALLY OR DOES THE PAGE REQUIRE AN LI?--}} 
   {{#each dateMatches}}
@@ -53,7 +54,7 @@
       <a href="/tender/{{no}}">{{department}}</a>
     </h3>
     <p>{{description}}</p>
-    <p>{{awardedDate}}</p>
+    <p class="date-block">{{awardedDate}}</p>
     <p class="value-block">R {{value}}</p>
   </li>
   <hr> {{/each}}

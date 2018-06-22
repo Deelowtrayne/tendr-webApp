@@ -8,9 +8,10 @@ WHAT IS ON THERE. * HOPE THIS ISN'T CONFUSING YOU TOO MUCH. --}}
 
 <div class="filter">
     <h3>Find your TENDR mate!</h3>
+
     <form action="search" method="post">
       <input placeholder="search" type="text" name="searchInput">
-      <input type="submit">
+      <button type="submit" >Find It</button><button type="reset">Reset</button>
     <select class="animated fadeInLeft" name="industryFilter" onchange="switchPage(this)" class="industryFilter" >
       <option value="">by industry</option>
       {{#each industries}}
