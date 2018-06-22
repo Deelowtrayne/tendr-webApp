@@ -13,15 +13,15 @@
 }
 
 </style>
-<h2>You Are Viewing<br>Your Selected Tender</h2>
+<h2>You Are Viewing:</h2>
 <div class="tenderView">
   <!-- all data below are simply placeholders to show rendering. Please insert all where and as relevant -->
-  <p>Tender Number: 115C/2016/17</p>
-  <p>Reference: SCMB 08/01/17</p>
-  <p>Description: Provision of a payroll system for special projects payments</p>
-  <p>Vendor: CPI Holdings (Pty) Ltd</p>
-  <p>Awarded Date: 06 February 2017</p>
-  <p>Value: R2 000 000</p>
-  <p>Reason: Award: One Responsive Bid</p>
-  <p>Department: Finance - Expenditure</p>
+  <p>Tender Number: {tender.no}</p>
+  <p>Reference: {tender.reference}</p>
+  <p>{tender.description}</p>
+  <p>Vendor: {tender.vendor}</p>
+  <p>Awarded Date: {tender.awardedDate}</p>
+  <p>Value: {tender.value}</p>
+  <p>Reason: {tender.reason}</p>
+  <p>Department: {tender.department}</p>
 </div>
